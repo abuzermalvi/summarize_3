@@ -13,8 +13,8 @@ from dotenv import load_env
 load_env()
 
 # Set the API key for Google Serper
-#os.environ["SERPER_API_KEY"] = "51d999e5b64d028cc0e05e4f27bc0fd40f70cfae"
-#os.environ["GROQ_API_KEY"] = "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"
+os.environ["SERPER_API_KEY"] = st.secrets["SERPER_API_KEY"]
+os.environ["GROQ_API_KEY"] = st.secrets["GROQ_API_KEY"]
 # Define the keywords for each brand
 # Default keywords for each brand
 DEFAULT_PG_KEYWORDS = {
@@ -47,7 +47,7 @@ def get_google_news_data(keywords):
 
 # Function to get the Gemini client for summarization
 def get_gemini_client():
-    return genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
+    return genai.Client(api_key=os.getenv("GEMINI_API_KEY"), st.secrets["GEMINI_API_KEY"])
 
 # Function to extract a news summary using the Gemini API
 def extract_news_summary(topic, time_posted):
