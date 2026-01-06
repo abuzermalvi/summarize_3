@@ -9,8 +9,6 @@ from io import BytesIO
 import pytrends
 from pytrends.request import TrendReq
 from functools import reduce
-from dotenv import load_env
-load_env()
 
 # Set the API key for Google Serper
 os.environ["SERPER_API_KEY"] = st.secrets["SERPER_API_KEY"]
