@@ -29,7 +29,7 @@ trends_keywords = ['Tariffs', 'DEI', 'Latin Freeze', 'Recession', 'Immigration',
 def get_google_news_data(keywords):
     summary_dict = {}
     for keyword in keywords:
-        search = GoogleSerperAPIWrapper(serper_api_key = os.environ.get["SERPER_API_KEY"], type="news")
+        search = GoogleSerperAPIWrapper(serper_api_key = os.environ.get("SERPER_API_KEY"), type="news")
         results = search.results(keyword)
         news_data = {
             'Title': [n.get('title', '') for n in results.get('news', [])],
