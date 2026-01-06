@@ -1,0 +1,11 @@
+langchain-openai==0.1.8
+langchain==0.2.16 
+langgraph==0.2.16 
+langchain-google-genai 
+langchain-groq 
+langchain_community
+pytrends
+urllib3==1.26.12
+google-genai
+plotly
+xlsxwriter
