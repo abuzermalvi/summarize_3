@@ -29,7 +29,7 @@ trends_keywords = ['Tariffs', 'DEI', 'Latin Freeze', 'Recession', 'Immigration',
 def get_google_news_data(keywords):
     summary_dict = {}
     for keyword in keywords:
-        search = GoogleSerperAPIWrapper(type="news")
+        search = GoogleSerperAPIWrapper(serper_api_key = os.environ.get["SERPER_API_KEY"], type="news")
         results = search.results(keyword)
         news_data = {
             'Title': [n.get('title', '') for n in results.get('news', [])],
@@ -111,7 +111,7 @@ def call_llm_chain_base(base_prompt, parameters, variables):
         Callable: Returns the LLMChain that can be called for executing a prompt and getting response
     """
     # llm = ChatGoogleGenerativeAI(model="gemini-1.5-pro-latest", **parameters)
-    llm = ChatGroq(model='llama-3.3-70b-versatile', **parameters)
+    llm = ChatGroq(groq_api_key = os.environ.get("GROQ_API_KEY"), model='llama-3.3-70b-versatile', **parameters)
     prompt = PromptTemplate(input_variables=variables, template=base_prompt)
     llm_chain = LLMChain(llm=llm, prompt=prompt)
     
